@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         } */
 
+        //initial commit
+
         var grid = emptyArray<String>()
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)
         gridview.setAdapter(adapter_grid)
