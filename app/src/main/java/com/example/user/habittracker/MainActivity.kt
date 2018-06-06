@@ -1,5 +1,6 @@
 package com.example.user.habittracker
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         } */
 
-        
+
         var grid = emptyArray<String>()
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)
         gridview.setAdapter(adapter_grid)
@@ -35,5 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         textview.setBackgroundColor(Color.GREEN)
         textview.setTextColor(Color.BLACK)
+
     }
 }
