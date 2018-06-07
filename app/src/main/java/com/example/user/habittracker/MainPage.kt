@@ -1,5 +1,6 @@
 package com.example.user.habittracker
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
@@ -18,17 +19,20 @@ class MainPage : AppCompatActivity() {
 
         var data = mutableListOf<String>()
 
-        //var data = MutableList<String>(1){"Нажми на меня"}
         val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data)
 
         habitlist.adapter = adapter
 
         add.setOnClickListener {
-            num++
+            val intent = Intent(this, Main2Activity::class.java)
+            //intent.putExtra("data_id", "data")
+            startActivity(intent)
+
+            /* num++
             data.add("Нажми на меня")
             adapter.notifyDataSetChanged()
             habitlist.adapter = adapter
-            registerForContextMenu(habitlist)
+            registerForContextMenu(habitlist)*/
         }
         /*habitlist.setOnItemClickListener { parent, view, position, id ->
             //ArinA, where is your code????
@@ -36,13 +40,13 @@ class MainPage : AppCompatActivity() {
 
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
+   /* override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
         super.onCreateContextMenu(menu, v, menuInfo)
         menu!!.setHeaderTitle("Выбери:")
         menu!!.add("Сделал!")
         menu!!.add("Пропустить...")
 
-    }
+    }*/
 
 }
 
