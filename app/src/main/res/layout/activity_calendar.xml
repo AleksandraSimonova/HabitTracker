@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.megaplanner.frequency.Calendar">
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:text="Укажите частоту развития привычки"/>
+
+    <CheckBox
+        android:id="@+id/ch1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/hint"
+        android:textSize="22sp"
+        android:text="Ежедневно"
+        />
+    <CheckBox
+        android:id="@+id/ch2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/ch1"
+        android:textSize="22sp"
+        android:text="Через день"
+        />
+    <CheckBox
+        android:id="@+id/ch3"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/ch2"
+        android:textSize="22sp"
+        android:text="Раз в неделю"
+        />
+    <CheckBox
+        android:id="@+id/ch4"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/ch3"
+        android:textSize="22sp"
+        android:text="Раз в месяц"
+        />
+    <CheckBox
+        android:id="@+id/ch5"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@id/ch4"
+        android:textSize="22sp"
+        android:text="Собственный график"
+        />
+
+</RelativeLayout>
