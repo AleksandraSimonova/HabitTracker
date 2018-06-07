@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_table.*
 import kotlinx.android.synthetic.main.grid.*
 
 
@@ -18,52 +18,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_table)
 
-        var habit = mutableListOf<String>("Habits", "Sport", "Reading")
-        var adapter_habit = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, habit)
-
-
-        // count of days
-        var days = 100
-        // count of habits
-        var habits = 100
-
-        var table_size = days * habits
-
-
-        gridview.columnCount = days
-        gridview.rowCount = habits
-
-
-            for (i in 1..table_size) {
-                val text = TextView(this)
-                text.width = 30
-                text.height = 30
-                text.setTextColor(Color.BLACK)
-                text.setBackgroundColor(Color.WHITE)
-                text.text = "1"
-
-
-                gridview.addView(text)
-
-                val v = View(this)
-                v.layoutParams = ViewGroup.LayoutParams(3, ViewGroup.LayoutParams.MATCH_PARENT)
-                v.setBackgroundColor(Color.BLACK)
-                gridview.addView(v)
-
-                val v1 = View(this)
-                v1.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3)
-                v1.setBackgroundColor(Color.BLACK)
-                gridview.addView(v1)
-
-            }
-
-
-        listview.adapter = adapter_habit
-
-        textview.setTextColor(Color.BLACK)
-
+        list_habits()
+        grid_head()
+        grid_table()
 
         //var data = Array(100){i->(i+1).toString()}
         //var adapter_data = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data)
@@ -80,5 +39,66 @@ class MainActivity : AppCompatActivity() {
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)*/
         //headgridview.adapter = adapter_data
     }
+
+    // Table with results
+    // count of days
+    // count of habits
+    fun grid_table(days : Int = 10, habits : Int = 3)
+    {
+        var table_size = days * habits
+
+        gridview.columnCount = days
+        gridview.rowCount = habits
+
+
+        for (i in 1..table_size) {
+            val text = TextView(this)
+            text.width = 60
+            text.height = 70
+            text.text = ""
+            text.setBackgroundResource(R.drawable.element_green)
+
+
+            gridview.addView(text)
+
+        }
+    }
+
+
+
+    // grid witg dates
+    fun grid_head(days : Int = 10){
+
+        headgridview.columnCount = days
+        headgridview.rowCount = 1
+
+
+        for (i in 1..days) {
+            val text = TextView(this)
+            text.width = 60
+            text.height = 70
+            text.setBackgroundColor(Color.GREEN)
+            text.text = "1"
+            text.setBackgroundResource(R.drawable.element_green)
+
+
+            gridview.addView(text)
+
+        }
+
+
+    }
+
+    fun list_habits(){
+
+        var habit = mutableListOf<String>("Habits", "Sport", "Reading")
+        var adapter_habit = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, habit)
+
+
+        listview.adapter = adapter_habit
+
+    }
+
+
 
 }
