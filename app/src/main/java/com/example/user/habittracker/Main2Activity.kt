@@ -1,7 +1,10 @@
 package com.example.user.habittracker
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity() {
@@ -29,5 +32,12 @@ class Main2Activity : AppCompatActivity() {
                 a++
             freqcount.text = a.toString()
         }
+
+        var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
+        var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
+        spinner.adapter = adapter
+        //spinner.onItemSelectedListener{
+        //
+        //}
     }
 }

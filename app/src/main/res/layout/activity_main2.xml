@@ -22,6 +22,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            /* Label */
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,18 +34,34 @@
                     android:layout_height="wrap_content"
                     android:width="200dp"
                     android:height="50dp"
-                    android:textSize="30dp"
+                    android:text=" Категория"
                     android:textColor="#000000"
-                    android:text="Категория"/>
+                    android:textSize="25dp" />
 
-                <TextView
-                    android:id="@+id/lab1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="spinner"/>
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            /* Frequency */
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,40 +73,63 @@
                     android:layout_height="wrap_content"
                     android:width="200dp"
                     android:height="50dp"
-                    android:textSize="30dp"
+                    android:text=" Частота"
                     android:textColor="#000000"
-                    android:text="Частота"/>
+                    android:textSize="25dp" />
 
                 <Button
                     android:id="@+id/button1"
                     android:layout_width="10dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#e1d9d9"
                     android:text="-"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/freqcount"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:textSize="30dp"
-                    android:textColor="@color/colorAccent"
                     android:layout_gravity="center_vertical"
                     android:gravity="center"
-                    android:text="0"/>
+                    android:text="0"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="10dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#e1d9d9"
                     android:text="+"
-                    android:textColor="@color/colorAccent"/>
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            /* Starting date */
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -99,20 +139,39 @@
                     android:layout_height="wrap_content"
                     android:width="200dp"
                     android:height="50dp"
-                    android:textSize="30dp"
+                    android:text=" Дата начала"
                     android:textColor="#000000"
-                    android:text="Дата начала"/>
+                    android:textSize="25dp" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#dcd7d7"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#e1d9d9"
                     android:text="Выбрать дату"
+                    android:textAllCaps="false"
                     android:textColor="@color/colorAccent"
-                    android:textColorHighlight="@color/colorPrimary" />
+                    android:textColorHighlight="@color/colorPrimary" />>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            /* Notifications */
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -125,22 +184,87 @@
                     android:layout_alignParentLeft="true"
                     android:width="275dp"
                     android:height="50dp"
-                    android:textSize="30dp"
+                    android:text=" Напоминания"
                     android:textColor="#000000"
-                    android:text="Напоминания"/>
+                    android:textSize="25dp" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/addnot"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
                     android:clickable="true"
-                    app:srcCompat="@android:drawable/ic_input_add" />
+                    app:fabSize="mini"
+                    app:srcCompat="@drawable/plus" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="200dp"
+                    android:height="30dp"
+                    android:text="  "
+                    android:textColor="#000000"
+                    android:textSize="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"/>
+
+            </RelativeLayout>
+
+            /* OK button */
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ok" />
 
             </LinearLayout>
 
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>
