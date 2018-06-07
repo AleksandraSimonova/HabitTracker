@@ -40,6 +40,12 @@
         android:text="Привыкни к новой жизни!"
         android:textColor="#0000FF"
         android:textStyle="italic"/>
+    <Button
+        android:id="@+id/statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="statistic"
+        />
 
 
 </RelativeLayout>

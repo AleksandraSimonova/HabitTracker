@@ -16,6 +16,10 @@ class Calendar2 : AppCompatActivity() {
         /*val date = Date(clnd.date)
         date.day */
 
+        back.setOnClickListener {
+            this.finish()
+        }
+
         var i : Int = 1
         var dat = MutableList<Long>(1){i -> Date(clnd.date).time}
         back.setOnClickListener {
@@ -29,5 +33,7 @@ class Calendar2 : AppCompatActivity() {
             else if (i <= 21) dat.add(Date(year, month, dayOfMonth).time)
             i++
         }
+
     }
+
 }
