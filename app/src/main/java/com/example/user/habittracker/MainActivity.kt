@@ -1,5 +1,6 @@
 package com.example.user.habittracker
 
+import android.content.Intent
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -34,5 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         textview.setBackgroundColor(Color.GREEN)
         textview.setTextColor(Color.BLACK)
+
     }
 }
