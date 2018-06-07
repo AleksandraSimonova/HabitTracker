@@ -34,7 +34,8 @@ class MainPage : AppCompatActivity() {
             registerForContextMenu(habitlist)*/
         }
         statistic.setOnClickListener {
-
+            val intent = Intent(this, HabitTable::class.java)
+            startActivity(intent)
         }
         /*habitlist.setOnItemClickListener { parent, view, position, id ->
             //ArinA, where is your code????
