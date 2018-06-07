@@ -12,10 +12,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_table.*
 import kotlinx.android.synthetic.main.grid.*
+import java.util.*
 
 
-public class HabitTable() : AppCompatActivity(){
-
+public class HabitTable(days : Int = 10, habits : Int = 3, flag : Boolean = true) : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +32,8 @@ public class HabitTable() : AppCompatActivity(){
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)*/
     }
 
+
+
     fun Run()
     {
         list_habits()
@@ -44,6 +46,8 @@ public class HabitTable() : AppCompatActivity(){
     // amount of habits
     fun grid_table(days : Int = 10, habits : Int = 3, flag : Boolean = true)
     {
+        val arr = Array(habits+1){i -> Array<TextView>(days){i -> TextView(this)}}
+
         gridview.columnCount = days
         gridview.rowCount = habits + 1
 
@@ -54,8 +58,6 @@ public class HabitTable() : AppCompatActivity(){
         gridview.addView(exampleText)
         exampleText.text = "!"
         gridview.invalidate()*/
-
-        val arr = Array(habits+1){i -> Array<TextView>(days){i -> TextView(this)}}
 
         for (h in 0 until (habits + 1))
             for (d in 0 until days)
@@ -73,28 +75,17 @@ public class HabitTable() : AppCompatActivity(){
     }
 
 
-    // Grid with dates
-    // (day : Int) amount of days
-    /*fun grid_head(days : Int = 10){
+    // Set dates
+    fun set_dates(iYear : Int = 2018, iMonth : Int = Calendar.JUNE, iDay : Int = 1){
 
-        headgridview.columnCount = days
-        headgridview.rowCount = 1
+        var data = GregorianCalendar(iYear, iMonth, iDay)
 
+        var amount_days = data.getActualMaximum(Calendar.DAY_OF_MONTH)
 
-        for (i in 1..days) {
-            val text = TextView(this)
-            text.width = 60
-            text.height = 70
-            text.setBackgroundColor(Color.GREEN)
-            text.text = "1"
-            text.setBackgroundResource(R.drawable.element_green)
-
-
-            headgridview.addView(text)
+        for (i in 1..amount_days){
 
         }
-
-    }*/
+    }
 
     // List with habits
     // massive with habits
