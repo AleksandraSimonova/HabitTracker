@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
 
 
         // count of days
-        var days = 5
+        var days = 100
         // count of habits
-        var habits = 5
+        var habits = 100
 
         var table_size = days * habits
 
@@ -36,25 +36,32 @@ class MainActivity : AppCompatActivity() {
         gridview.rowCount = habits
 
 
-        for(i in 1..table_size){
-
-            val img= ImageView(this)
-
-            //text.text = "hello"
-            //text.width = 40
-            ///text.setBackgroundColor(Color.GREEN)
-            //text.scrollBarSize
-
-            img.setBackgroundColor(2)
+            for (i in 1..table_size) {
+                val text = TextView(this)
+                text.width = 30
+                text.height = 30
+                text.setTextColor(Color.BLACK)
+                text.setBackgroundColor(Color.WHITE)
+                text.text = "1"
 
 
-            gridview.addView(text1)
-        }
+                gridview.addView(text)
+
+                val v = View(this)
+                v.layoutParams = ViewGroup.LayoutParams(3, ViewGroup.LayoutParams.MATCH_PARENT)
+                v.setBackgroundColor(Color.BLACK)
+                gridview.addView(v)
+
+                val v1 = View(this)
+                v1.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 3)
+                v1.setBackgroundColor(Color.BLACK)
+                gridview.addView(v1)
+
+            }
 
 
         listview.adapter = adapter_habit
 
-        textview.setBackgroundColor(Color.GREEN)
         textview.setTextColor(Color.BLACK)
 
 

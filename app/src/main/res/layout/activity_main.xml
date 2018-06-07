@@ -28,7 +28,6 @@
             android:id="@+id/gridview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFF"
             android:columnWidth="90dp"
             android:gravity="center"
             android:horizontalSpacing="5dp"
@@ -55,6 +54,7 @@
         android:id="@+id/textview"
         android:layout_width="50pt"
         android:layout_height="50dp"
+        android:color = "@color/colorAccent"
         android:text="Habits" />
 
     <GridView
@@ -67,6 +67,7 @@
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:verticalSpacing="10dp"
+
         android:layout_toRightOf="@+id/textview"/>
 
 
