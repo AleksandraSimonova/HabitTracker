@@ -37,7 +37,7 @@ class Main2Activity : AppCompatActivity() {
         var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
         spinner.adapter = adapter
         //spinner.onItemSelectedListener{
-        //    
+        //
         //}
     }
 }
