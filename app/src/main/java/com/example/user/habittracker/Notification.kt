@@ -1,4 +1,4 @@
-package com.megaplanner.notify
+package com.example.user.habittracker
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -11,5 +11,6 @@ class Notification : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)
     }
+
 }
 

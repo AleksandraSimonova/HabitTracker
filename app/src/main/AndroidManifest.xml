@@ -13,9 +13,9 @@
 
         </activity>
         <activity android:name=".Frequency2" />
-        <activity android:name="com.megaplanner.frequency.Calendar" />
-        <activity android:name="com.megaplanner.frequency.Calendar2" />
-        <activity android:name="com.megaplanner.notify.Notification">
+        <activity android:name=".Calendar" />
+        <activity android:name=".Calendar2" />
+        <activity android:name=".Notification">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 

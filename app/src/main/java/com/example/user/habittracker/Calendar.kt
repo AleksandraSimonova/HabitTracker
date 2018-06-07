@@ -1,4 +1,4 @@
-package com.megaplanner.frequency
+package com.example.user.habittracker
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity

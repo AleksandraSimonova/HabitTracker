@@ -13,11 +13,11 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-//        addnot.setOnClickListener {
-//            /*val intent = Intent(this, Main2Activity::class.java)
-//            intent.putExtra("data_id", "data")
-//            startActivity(intent)*/
-//        }
+        addnot.setOnClickListener {
+            val intent = Intent(this, Notification::class.java)
+
+            startActivity(intent)
+        }
 
         var a = 0
 
