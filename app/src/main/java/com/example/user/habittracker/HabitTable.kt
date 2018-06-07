@@ -14,60 +14,68 @@ import kotlinx.android.synthetic.main.activity_table.*
 import kotlinx.android.synthetic.main.grid.*
 
 
-class MainActivity : AppCompatActivity() {
+public class HabitTable() : AppCompatActivity(){
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_table)
 
-        list_habits()
-        grid_head()
-        grid_table()
 
+        Run()
         //var data = Array(100){i->(i+1).toString()}
         //var adapter_data = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data)
-
-        /*button.setOnClickListener{
-            data.add(button.text.toString())
-            adapter.notifyDataSetChanged()
-
-        } */
 
         /* var grid = mutableListOf<String>()
         for (i in 1..90)
             grid.add("")
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)*/
-        //headgridview.adapter = adapter_data
     }
+
+    fun Run()
+    {
+        list_habits()
+        grid_table()
+    }
+
 
     // Table with results
-    // count of days
-    // count of habits
-    fun grid_table(days : Int = 10, habits : Int = 3)
+    // amount of days
+    // amount of habits
+    fun grid_table(days : Int = 10, habits : Int = 3, flag : Boolean = true)
     {
-        var table_size = days * habits
-
         gridview.columnCount = days
-        gridview.rowCount = habits
+        gridview.rowCount = habits + 1
 
+        /*arr[0][0]
 
-        for (i in 1..table_size) {
-            val text = TextView(this)
-            text.width = 60
-            text.height = 70
-            text.text = ""
-            text.setBackgroundResource(R.drawable.element_green)
+        val exampleText = TextView(this)
+        exampleText.text = "Hello world"
+        gridview.addView(exampleText)
+        exampleText.text = "!"
+        gridview.invalidate()*/
 
+        val arr = Array(habits+1){i -> Array<TextView>(days){i -> TextView(this)}}
 
-            gridview.addView(text)
+        for (h in 0 until (habits + 1))
+            for (d in 0 until days)
+            {
+                val text = TextView(this)
+                text.width = 60
+                text.height = 75
+                text.text = ""
+                text.setBackgroundResource(R.drawable.element_default)
 
-        }
+                arr[h][d] = text
+                gridview.addView(text)
+            }
+
     }
 
 
-
-    // grid witg dates
-    fun grid_head(days : Int = 10){
+    // Grid with dates
+    // (day : Int) amount of days
+    /*fun grid_head(days : Int = 10){
 
         headgridview.columnCount = days
         headgridview.rowCount = 1
@@ -82,23 +90,23 @@ class MainActivity : AppCompatActivity() {
             text.setBackgroundResource(R.drawable.element_green)
 
 
-            gridview.addView(text)
+            headgridview.addView(text)
 
         }
 
+    }*/
 
-    }
-
+    // List with habits
+    // massive with habits
     fun list_habits(){
 
-        var habit = mutableListOf<String>("Habits", "Sport", "Reading")
+        var habit = mutableListOf<String>("Swimming", "Sport", "Reading")
         var adapter_habit = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, habit)
 
 
         listview.adapter = adapter_habit
 
     }
-
 
 
 }
