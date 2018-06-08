@@ -21,10 +21,10 @@
         android:layout_height="390dp"
         android:layout_below="@id/txt"></CalendarView>
     <Button
-        android:id="@+id/back"
+        android:id="@+id/set"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Назад"
+        android:text="Установить"
         android:layout_below="@id/clnd"
         android:layout_centerHorizontal="true"/>
 

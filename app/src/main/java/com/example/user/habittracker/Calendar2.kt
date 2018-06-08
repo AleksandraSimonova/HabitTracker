@@ -16,13 +16,13 @@ class Calendar2 : AppCompatActivity() {
         /*val date = Date(clnd.date)
         date.day */
 
-        back.setOnClickListener {
-            this.finish()
+        set.setOnClickListener {
+            finish()
         }
 
         var i : Int = 1
         var dat = MutableList<Long>(1){i -> Date(clnd.date).time}
-        back.setOnClickListener {
+        set.setOnClickListener {
             val intent = Intent(this, Calendar::class.java)
             intent.putExtra("clnds",dat.toTypedArray<Long>())
             startActivity(intent)

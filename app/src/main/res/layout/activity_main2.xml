@@ -233,7 +233,7 @@
 
             </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -249,19 +249,19 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"/>
 
-            </RelativeLayout>
+            </LinearLayout>
 
             /* OK button */
 
 
             <LinearLayout
-                android:id="@+id/ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center"
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/ok"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ok" />
