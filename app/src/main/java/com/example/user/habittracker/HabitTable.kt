@@ -76,11 +76,11 @@ public class HabitTable(days : Int = 10, habits : Int = 3, flag : Boolean = true
 
 
     // Set dates
-    fun set_dates(iYear : Int = 2018, iMonth : Int = Calendar.JUNE, iDay : Int = 1){
+    fun set_dates(iYear : Int = 2018, iMonth : Int = java.util.Calendar.JUNE, iDay : Int = 1){
 
         var data = GregorianCalendar(iYear, iMonth, iDay)
 
-        var amount_days = data.getActualMaximum(Calendar.DAY_OF_MONTH)
+        var amount_days = data.getActualMaximum(java.util.Calendar.DAY_OF_MONTH)
 
         for (i in 1..amount_days){
 
