@@ -1,38 +1,36 @@
 package com.example.user.habittracker
 
+import android.app.Activity
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_calendar2.*
-import java.util.*
 import android.widget.CalendarView
-import com.example.user.habittracker.R
+import android.widget.Toast
+import android.widget.CalendarView.OnDateChangeListener
+
+
 
 class Calendar2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar2)
-        /*val date = Date(clnd.date)
-        date.day */
-
-        back.setOnClickListener {
-            this.finish()
+        clnd.setOnDateChangeListener { view, year, month, dayOfMonth ->
+            /*val selectedDate = StringBuilder().append(month + 1)
+                    .append("-").append(dayOfMonth).append("-").append(year)
+                    .append(" ").toString()
+            Toast.makeText(applicationContext, selectedDate, Toast.LENGTH_LONG).show()*/
+            val intent = Intent()
+            intent.putExtra("Year", year)
+            intent.putExtra("Month", month)
+            intent.putExtra("Day", dayOfMonth)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
 
-        var i : Int = 1
-        var dat = MutableList<Long>(1){i -> Date(clnd.date).time}
-        back.setOnClickListener {
-            val intent = Intent(this, Calendar::class.java)
-            intent.putExtra("clnds",dat.toTypedArray<Long>())
-            startActivity(intent)
-        }
-        val clndr = findViewById<CalendarView>(R.id.clnd)
-        clndr.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            if (i == 1) dat.removeAt(0)
-            else if (i <= 21) dat.add(Date(year, month, dayOfMonth).time)
-            i++
-        }
+
+
 
     }
 
