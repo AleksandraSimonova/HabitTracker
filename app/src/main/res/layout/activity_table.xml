@@ -14,7 +14,7 @@
         android:text="button1" />-->
 
 
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="273dp"
         android:layout_height="461dp"
         android:layout_alignParentBottom="true"
@@ -23,22 +23,27 @@
         android:layout_marginEnd="0dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/listview">
-
-        <GridLayout
-            android:id="@+id/gridview"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnWidth="90dp"
-            android:gravity="center"
-            android:horizontalSpacing="5dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="5dp">
+            android:layout_height="match_parent">
 
 
-        </GridLayout>
+            <GridLayout
+                android:id="@+id/gridview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnWidth="90dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="auto_fit"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp"/>
 
-    </HorizontalScrollView>
+
+        </HorizontalScrollView>
+
+    </ScrollView>
+
 
 
     <!--<HorizontalScrollView
@@ -74,13 +79,13 @@
 
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/textview"
         android:layout_width="50pt"
         android:layout_height="50dp"
         android:background="@color/colorAccent"
         android:gravity="center"
-        android:text="Habits" />
+        android:text="Habits" />-->
 
     <!--<GridLayout
         android:id="@+id/headgridview"
