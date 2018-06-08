@@ -9,6 +9,7 @@ class MySqlHelper1(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
     companion object {
         val tableName = "Habit"
         val colId = "_id"
+        val colLabel = "label"
         val colName = "name"
         val colFreq = "freq"
         private var instance: MySqlHelper1? = null
@@ -24,6 +25,7 @@ class MySqlHelper1(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(tableName, true,
                 colId to INTEGER + PRIMARY_KEY,
+                colLabel to TEXT,
                 colName to TEXT,
                 colFreq to INTEGER)
 
@@ -31,18 +33,16 @@ class MySqlHelper1(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "mydb") {
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 
-    fun insert(ctx: Context, name: String, freq: Int){
+    fun insert(ctx: Context, label: String, name: String, freq: Int){
         getInstance(ctx).use {
-            insert(tableName,colName to name, colFreq to freq)
+            insert(tableName, colLabel to label, colName to name, colFreq to freq)
         }
     }
 
-    fun select(ctx: Context) : SelectQueryBuilder{
-        lateinit var data : SelectQueryBuilder
-        getInstance(ctx).use {
+    fun select(ctx: Context, name: String) : SelectQueryBuilder{
+        val data = getInstance(ctx).use {
             select(tableName).whereArgs("$colName = {name}",
-                    colName to "Бегать")
-            //  delete(tableName, "",colName to "Бегать")
+                    colName to name)
         }
         return data
     }

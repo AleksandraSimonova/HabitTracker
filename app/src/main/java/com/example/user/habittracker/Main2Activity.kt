@@ -3,6 +3,7 @@ package com.example.user.habittracker
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main2.*
 
@@ -12,26 +13,30 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        //var arr = emptyArray<String>()
+
+        var d = MySqlHelper1.getInstance(this)
+
+        var label : String = ""
+        val name = edittext.text.toString()
+        var freq = 0
+
         addnot.setOnClickListener {
             val intent = Intent(this, Notification::class.java)
 
             startActivity(intent)
         }
 
-        //val d = MySqlHelper1.getInstance(this)
-
-        var a = 0
-
         button1.setOnClickListener{
-            if (a != 0)
-                a--
-            freqcount.text = a.toString()
+            if (freq != 0)
+                freq--
+            freqcount.text = freq.toString()
         }
 
         button2.setOnClickListener{
-            if (a < 6)
-                a++
-            freqcount.text = a.toString()
+            if (freq < 6)
+                freq++
+            freqcount.text = freq.toString()
         }
 
         date.setOnClickListener{
@@ -41,13 +46,17 @@ class Main2Activity : AppCompatActivity() {
 
         }
 
-        ok.setOnClickListener {
-            //d.insert(this, )
-            finish()
-        }
         var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
         var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
         spinner.adapter = adapter
+        /*spinner.onItemSelectedListener { parent, view, position, id ->
+            label = spinner.selectedItem.toString()
+        }*/
+
+        ok.setOnClickListener {
+            d.insert(this, label, name, freq)
+            finish()
+        }
 
         //spinner.onItemSelectedListener{
         //
