@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         var adapter_grid = ArrayAdapter<String>(this, R.layout.grid, grid)
         gridview.setAdapter(adapter_grid)
 
+
+
         headgridview.adapter = adapter_data
         listview.adapter = adapter_habit
 

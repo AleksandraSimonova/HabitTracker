@@ -25,7 +25,6 @@ class MainPage : AppCompatActivity() {
 
         add.setOnClickListener {
             val intent = Intent(this, Main2Activity::class.java)
-            //intent.putExtra("data_id", "data")
             startActivity(intent)
 
             /* num++
@@ -33,6 +32,10 @@ class MainPage : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             habitlist.adapter = adapter
             registerForContextMenu(habitlist)*/
+        }
+        statistic.setOnClickListener {
+            val intent = Intent(this, HabitTable::class.java)
+            startActivity(intent)
         }
         /*habitlist.setOnItemClickListener { parent, view, position, id ->
             //ArinA, where is your code????

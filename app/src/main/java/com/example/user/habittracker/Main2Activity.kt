@@ -33,6 +33,16 @@ class Main2Activity : AppCompatActivity() {
             freqcount.text = a.toString()
         }
 
+        date.setOnClickListener{
+            val intent = Intent(this, Calendar2::class.java)
+
+            startActivity(intent)
+
+        }
+
+        ok.setOnClickListener {
+            finish()
+        }
         var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
         var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
         spinner.adapter = adapter
