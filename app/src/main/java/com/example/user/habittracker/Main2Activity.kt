@@ -29,7 +29,7 @@ class Main2Activity : AppCompatActivity() {
 
         var ch = 0
 
-
+// Initial commit
 
         button1.setOnClickListener{
             if (ch != 0)
