@@ -16,7 +16,12 @@ class Main2Activity : AppCompatActivity() {
     var day:Int = 0
     var month:Int = 0
     var year:Int = 0
+    val NotificationRequestCode = 2
+    val ADD_TASK_REQUEST = 1
 
+    companion object {
+        val EXTRA_TASK_DESCRIPTION = "task"
+    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -24,15 +29,15 @@ class Main2Activity : AppCompatActivity() {
         if (requestCode == Calendar2RequestCode && resultCode == Activity.RESULT_OK && data != null)
 
         {
-            day = data.getIntExtra("Day", 0)
-            month = data.getIntExtra("Month", 0)
-            year = data.getIntExtra("Year", 0)
-
-            val selectedDate = StringBuilder().append(data.getIntExtra("Day",0).toString())
-                    .append("-").append((data.getIntExtra("Month",0)+1).toString()).append("-").append(data.getIntExtra("Year",0).toString())
-                    .append(" ").toString()
-            date.text = selectedDate
-
+            if (data.getIntExtra("Day",0) != 0) {
+                day = data.getIntExtra("Day", 0)
+                month = data.getIntExtra("Month", 0)
+                year = data.getIntExtra("Year", 0)
+                val selectedDate = StringBuilder().append(data.getIntExtra("Day", 0).toString())
+                        .append("-").append((data.getIntExtra("Month", 0) + 1).toString()).append("-").append(data.getIntExtra("Year", 0).toString())
+                        .append(" ").toString()
+                date.text = selectedDate
+            }
         }
     }
 
@@ -45,8 +50,7 @@ class Main2Activity : AppCompatActivity() {
 
         addnot.setOnClickListener {
             val intent = Intent(this, Notification::class.java)
-
-            startActivity(intent)
+            startActivityForResult(intent, ADD_TASK_REQUEST)
         }
 
         var a = 0
@@ -71,14 +75,22 @@ class Main2Activity : AppCompatActivity() {
         }
 
         ok.setOnClickListener {
+            val habit = edittext.text.toString()
+            if (!habit.isEmpty()) {
+                val res = Intent()
+                res.putExtra(EXTRA_TASK_DESCRIPTION, habit)
+                setResult(Activity.RESULT_OK, res)
+            } else {
+                setResult(Activity.RESULT_CANCELED)
+            }
             finish()
         }
         var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
         var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
         spinner.adapter = adapter
 
-        //spinner.onItemSelectedListener{
-        //
-        //}
+        /*spinner.onItemSelectedListener{
+              Doesn't seem like anything to me
+        }*/
     }
 }
