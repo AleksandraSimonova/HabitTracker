@@ -14,7 +14,6 @@ class Calendar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
 
-        var i : Int = 1
         var dat : MutableList<Long>
         var getIntentFromA2 = intent
         if(getIntentFromA2.hasExtra("clnds"))

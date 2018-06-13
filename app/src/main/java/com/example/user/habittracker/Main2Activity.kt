@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main2.*
 
@@ -13,11 +15,9 @@ class Main2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        //var arr = emptyArray<String>()
+        var database = MySqlHelper1.getInstance(this)
 
-        var d = MySqlHelper1.getInstance(this)
-
-        var label : String = ""
+        var label = ""
         val name = edittext.text.toString()
         var freq = 0
 
@@ -49,12 +49,10 @@ class Main2Activity : AppCompatActivity() {
         var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
         var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
         spinner.adapter = adapter
-        /*spinner.onItemSelectedListener { parent, view, position, id ->
-            label = spinner.selectedItem.toString()
-        }*/
 
         ok.setOnClickListener {
-            d.insert(this, label, name, freq)
+            label = spinner.selectedItem.toString()
+            //database.insert(this, label, name, freq)
             finish()
         }
 
