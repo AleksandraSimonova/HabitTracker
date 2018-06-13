@@ -12,7 +12,8 @@
         android:id="@+id/edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:height="80dp"
+        android:textSize="20dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -42,8 +43,7 @@
                 <Spinner
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-                    //android:spinnerMode="dialog"
+                    android:layout_height="match_parent" />
 
             </LinearLayout>
 
@@ -129,7 +129,7 @@
 
             </LinearLayout>
 
-            /* Starting date */
+            // Starting date
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
 
             </LinearLayout>
 
-            /* Notifications */
+            // Notifications
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -251,7 +251,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
             /* OK button */
 
@@ -268,7 +268,8 @@
                     android:layout_height="wrap_content"
                     android:text="ok" />
 
-            </LinearLayout>
+            </LinearLayout
+>
 
         </LinearLayout>
     </ScrollView>

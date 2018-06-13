@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Frequency2" />
-        <activity android:name=".Calendar" />
         <activity android:name=".Calendar2" />
         <activity android:name=".HabitTable" />
         <activity android:name=".Notification">
