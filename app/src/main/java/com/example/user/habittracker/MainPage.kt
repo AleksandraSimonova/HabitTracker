@@ -15,7 +15,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main_page.*
 import android.app.PendingIntent
-
+import android.media.RingtoneManager
 
 
 class MainPage : AppCompatActivity() {
@@ -76,9 +76,9 @@ class MainPage : AppCompatActivity() {
                 .show()
     }
 // Initial commit
-    /*fun showNotification() {
+    fun showNotification() {
         println("I am still work")
-        val notificationIntent = Intent(this, MainActivity::class.java)
+        /*val notificationIntent = Intent(this, MainActivity::class.java)
         val contentIntent = PendingIntent.getActivity(this,
                 0, notificationIntent,
                 PendingIntent.FLAG_CANCEL_CURRENT)
@@ -90,8 +90,21 @@ class MainPage : AppCompatActivity() {
                 .setContentText("Здесь будет вопрос?")
         // var notificationManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         var notMang : NotificationManagerCompat = NotificationManagerCompat.from(this)
-        notMang.notify(0, builder.build())
-    }*/
+        notMang.notify(0, builder.build())*/
+    val intent = Intent(applicationContext, MainActivity::class.java)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+    val pendingIntent = PendingIntent.getActivity(applicationContext, 0, intent, PendingIntent.FLAG_ONE_SHOT)
+    val uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
+    val notificationBuilder = NotificationCompat.Builder(applicationContext)
+            .setContentText("Dummy Notification")
+            .setAutoCancel(true)
+            .setSound(uri)
+            .setSmallIcon(R.mipmap.ic_launcher)
+            .setContentIntent(pendingIntent)
+    val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
