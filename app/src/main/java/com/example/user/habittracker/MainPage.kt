@@ -7,12 +7,16 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.NotificationCompat
+import android.support.v4.app.NotificationManagerCompat
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main_page.*
+import android.app.PendingIntent
+
+
 
 class MainPage : AppCompatActivity() {
 
@@ -71,16 +75,23 @@ class MainPage : AppCompatActivity() {
                 .create()
                 .show()
     }
-
-    fun showNotification() {
+// Initial commit
+    /*fun showNotification() {
         println("I am still work")
-        val builder : NotificationCompat.Builder = NotificationCompat.Builder(this)
+        val notificationIntent = Intent(this, MainActivity::class.java)
+        val contentIntent = PendingIntent.getActivity(this,
+                0, notificationIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT)
+        var builder : NotificationCompat.Builder = NotificationCompat.Builder(this)
+        builder.setContentIntent(contentIntent)
                 .setSmallIcon(R.mipmap.not_icon)
                 .setContentTitle("Привычка ждет!")
+                .setWhen(System.currentTimeMillis())
                 .setContentText("Здесь будет вопрос?")
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(0, builder.build())
-    }
+        // var notificationManager : NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        var notMang : NotificationManagerCompat = NotificationManagerCompat.from(this)
+        notMang.notify(0, builder.build())
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,7 +104,7 @@ class MainPage : AppCompatActivity() {
         habitlist.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
             current_id = position
             habitSelected(position)
-            showNotification()
+            //showNotification()
         }
         add.setOnClickListener {
 
