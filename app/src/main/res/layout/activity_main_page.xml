@@ -24,11 +24,11 @@
             android:layout_gravity="center"
             android:id="@+id/toolbar_title" />
 
-        <Button
+        <ImageButton
             android:id="@+id/statistic"
+            android:background="@mipmap/statistics_icon_round"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cтатистика"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             />

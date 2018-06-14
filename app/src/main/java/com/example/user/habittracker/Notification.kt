@@ -17,7 +17,7 @@ class Notification : AppCompatActivity() {
 
     val ADD_TASK_REQUEST : Int = 1
 
-    var tm = String()
+    var tm = "Не выбрано"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

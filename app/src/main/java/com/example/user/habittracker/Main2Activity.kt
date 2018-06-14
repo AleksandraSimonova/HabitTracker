@@ -18,7 +18,7 @@ class Main2Activity : AppCompatActivity() {
     var year:Int = 0
     val NotificationRequestCode = 2
     val ADD_TASK_REQUEST = 1
-
+    var Time = "8:00"
     companion object {
         val EXTRA_TASK_DESCRIPTION = "task"
     }
@@ -29,7 +29,8 @@ class Main2Activity : AppCompatActivity() {
         if (requestCode == Calendar2RequestCode && resultCode == Activity.RESULT_OK && data != null)
 
         {
-            if (data.getIntExtra("Day",0) != 0) {
+            if (data.getIntExtra("Day",0) != 0)
+            {
                 day = data.getIntExtra("Day", 0)
                 month = data.getIntExtra("Month", 0)
                 year = data.getIntExtra("Year", 0)
@@ -37,6 +38,7 @@ class Main2Activity : AppCompatActivity() {
                         .append("-").append((data.getIntExtra("Month", 0) + 1).toString()).append("-").append(data.getIntExtra("Year", 0).toString())
                         .append(" ").toString()
                 date.text = selectedDate
+
             }
         }
     }
@@ -54,6 +56,8 @@ class Main2Activity : AppCompatActivity() {
         }
 
         var a = 0
+        var b = 0
+        var c = 0
 
         button1.setOnClickListener{
             if (a != 0)
@@ -72,6 +76,16 @@ class Main2Activity : AppCompatActivity() {
 
             startActivityForResult(intent, Calendar2RequestCode)
 
+        }
+        edittext.setOnClickListener {
+            if (b == 0)
+              edittext.setText("")
+            b++
+        }
+        editques.setOnClickListener {
+            if (c == 0)
+                editques.setText("")
+            c++
         }
 
         ok.setOnClickListener {
