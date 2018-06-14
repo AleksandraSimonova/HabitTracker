@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_table.*
 import kotlinx.android.synthetic.main.grid.*
 import java.util.*
@@ -34,6 +35,12 @@ public class HabitTable() : AppCompatActivity(){
     fun Run()
     {
         var array = Array(habits+1){i -> Array<TextView>(days){i -> TextView(this)}}
+
+        scrollView.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            run {
+                scroll_list.scrollY = scrollY
+            }
+        }
 
         list_habits()
         grid_table(array)
@@ -73,7 +80,7 @@ public class HabitTable() : AppCompatActivity(){
                     gridview.addView(arr[h][d])
 
                 }
-            //set_data(arr)
+            set_data()
             //grid_change(arr)
        }
     }
@@ -99,10 +106,35 @@ public class HabitTable() : AppCompatActivity(){
 
 
 
-    fun set_data(arr : Array<Array<TextView>>, iYear : Int = 2018, iMonth : Int = java.util.Calendar.JUNE, iDay : Int = 1)
+    fun set_data()//arr : Array<Array<TextView>>, iYear : Int = 2018, iMonth : Int = java.util.Calendar.JUNE, iDay : Int = 1)
     {
 
-        var data = GregorianCalendar(iYear, iMonth, iDay)
+        var data_month = mutableListOf<String>("", "Январь", "Февраль", "Март", "Апрель",
+                                               "Май","Июнь","Июль", "Август",
+                                               "Сентябрь","Октябрь","Ноябрь","Декабрь")
+        var adapter_month = ArrayAdapter<String>(this, R.layout.my_spinner_item, data_month)
+        spinner_month.adapter = adapter_month
+
+        var data_year = mutableListOf<String>("", "2018", "2019", "2020", "2021")
+        var adapter_year = ArrayAdapter<String>(this, R.layout.my_spinner_item, data_year)
+        spinner_year.adapter = adapter_year
+
+
+        /*var month : String = ""
+
+        spinner_month.setOnItemClickListener { parent, view, position, id ->
+            month = spinner.selectedItem.toString()
+         }
+
+
+        var year : String = ""
+
+        spinner_month.setOnItemClickListener { parent, view, position, id ->
+            year = spinner.selectedItem.toString()
+        }*/
+
+
+        /*var data = GregorianCalendar(iYear, iMonth, iDay)
 
         var amount_days = data.getActualMaximum(java.util.Calendar.DAY_OF_MONTH)
 
@@ -110,7 +142,7 @@ public class HabitTable() : AppCompatActivity(){
         {
             arr[0][i].text = i.toString()
 
-        }
+        }*/
 
     }
 
