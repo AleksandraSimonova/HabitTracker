@@ -18,8 +18,8 @@ import java.util.*
 
 public class HabitTable() : AppCompatActivity(){
 
-    var days = 10
-    var habits = 100
+    var days = 30
+    var habits = 3
     var flag = false
 
 
@@ -42,6 +42,7 @@ public class HabitTable() : AppCompatActivity(){
             }
         }
 
+        choose_date()
         list_habits()
         grid_table(array)
     }
@@ -66,13 +67,15 @@ public class HabitTable() : AppCompatActivity(){
         val listItem = listview.adapter.getView(0, null, viewG)
         listItem.measure(0,0)
 
+        textview.height = listItem.measuredHeight
+
         if (!listview.adapter.isEmpty)
         {
             for (h in 0 until (habits + 1))
                 for (d in 0 until days)
                 {
                     arr[h][d].width = listItem.measuredHeight
-                    arr[h][d].height = listItem.measuredHeight
+                    arr[h][d].height = listItem.measuredHeight + 2
                     arr[h][d].text = ""
                     arr[h][d].setBackgroundResource(R.drawable.element_default)
 
@@ -80,7 +83,7 @@ public class HabitTable() : AppCompatActivity(){
                     gridview.addView(arr[h][d])
 
                 }
-            set_data()
+            set_date(arr)
             //grid_change(arr)
        }
     }
@@ -105,13 +108,12 @@ public class HabitTable() : AppCompatActivity(){
     }
 
 
-
-    fun set_data()//arr : Array<Array<TextView>>, iYear : Int = 2018, iMonth : Int = java.util.Calendar.JUNE, iDay : Int = 1)
+    fun choose_date()
     {
 
         var data_month = mutableListOf<String>("", "Январь", "Февраль", "Март", "Апрель",
-                                               "Май","Июнь","Июль", "Август",
-                                               "Сентябрь","Октябрь","Ноябрь","Декабрь")
+                "Май","Июнь","Июль", "Август",
+                "Сентябрь","Октябрь","Ноябрь","Декабрь")
         var adapter_month = ArrayAdapter<String>(this, R.layout.my_spinner_item, data_month)
         spinner_month.adapter = adapter_month
 
@@ -119,30 +121,40 @@ public class HabitTable() : AppCompatActivity(){
         var adapter_year = ArrayAdapter<String>(this, R.layout.my_spinner_item, data_year)
         spinner_year.adapter = adapter_year
 
+    }
 
-        /*var month : String = ""
 
-        spinner_month.setOnItemClickListener { parent, view, position, id ->
+    /*fun month()
+    {
+
+        var month : String = ""
+
+        spinner_month.setOnItem { parent, view, position, id ->
             month = spinner.selectedItem.toString()
-         }
-
+        }
 
         var year : String = ""
 
-        spinner_month.setOnItemClickListener { parent, view, position, id ->
+        spinner_year.setOnItemClickListener { parent, view, position, id ->
             year = spinner.selectedItem.toString()
-        }*/
+        }
 
 
-        /*var data = GregorianCalendar(iYear, iMonth, iDay)
+        var data = GregorianCalendar(year.toInt(), month.toInt(), 1)
 
         var amount_days = data.getActualMaximum(java.util.Calendar.DAY_OF_MONTH)
 
-        for (i in 0..(amount_days - 1))
-        {
-            arr[0][i].text = i.toString()
+        Log.d("Super", data.toString())
+    }*/
 
-        }*/
+    fun set_date(arr : Array<Array<TextView>>)
+    {
+
+        for (i in 0..(days-1))
+        {
+            arr[0][i].text = (i+1).toString()
+
+        }
 
     }
 
