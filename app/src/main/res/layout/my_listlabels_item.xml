@@ -5,6 +5,6 @@
     android:layout_height="wrap_content"
     android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:gravity="center_vertical"
-    android:background="#ff9dd5"
+    android:background="#ffffff"
     android:textSize="30dp"
     />

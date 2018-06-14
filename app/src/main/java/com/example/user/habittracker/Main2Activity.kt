@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity() {
@@ -22,6 +21,8 @@ class Main2Activity : AppCompatActivity() {
     companion object {
         val EXTRA_TASK_DESCRIPTION = "task"
     }
+
+    var labels = mutableListOf<String>()
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -85,12 +86,8 @@ class Main2Activity : AppCompatActivity() {
             }
             finish()
         }
-        var data = mutableListOf<String>("Учёба", "Работа", "Саморазвитие")
-        var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, data)
+        var adapter = ArrayAdapter<String>(this, R.layout.my_spinner_item, labels)
         spinner.adapter = adapter
 
-        /*spinner.onItemSelectedListener{
-              Doesn't seem like anything to me
-        }*/
     }
 }

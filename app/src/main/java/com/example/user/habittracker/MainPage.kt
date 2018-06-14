@@ -72,14 +72,6 @@ class MainPage : AppCompatActivity() {
         }
     }
 
-    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo?) {
-        super.onCreateContextMenu(menu, v, menuInfo)
-        menu!!.setHeaderTitle("Выбери:")
-        menu!!.add("Сделано!")
-        menu!!.add("Пропустить...")
-        menu!!.add("Удалить")
-    }
-
     override fun onContextItemSelected(item: MenuItem?): Boolean {
         if (current_id >= 0) {
             if (item.toString() == "Сделано!")

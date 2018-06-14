@@ -42,23 +42,14 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_height="60dp"
         android:layout_below="@+id/timePicker"
+        android:layout_centerInParent="true"
         android:clickable="true"
 
+        app:elevation="0dp"
+        app:fabSize="normal"
         app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="bottom"
-        android:textSize="22sp"
-        android:layout_below="@+id/floatingActionButton"
-        android:text="Вибрация" />
 
     <ToggleButton
         android:id="@+id/toggleButton"
@@ -66,7 +57,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:text="Вибрация" />
+        android:layout_below="@+id/floatingActionButton"
+        android:text="Вибрация"
+        android:textOff="Вибрация отключена"
+        android:textOn="Вибрация включена"
+        tools:text="Вибрация" />
 
 </RelativeLayout>

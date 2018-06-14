@@ -8,15 +8,13 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.support.v7.app.AlertDialog
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_settings.*
+import org.jetbrains.anko.db.classParser
 
+class Settings : AppCompatActivity(){
 
-
-class Settings() : AppCompatActivity(){
-
-    companion object {
-        var labels = mutableListOf<String>()
-    }
+    var DB = MySqlHelper1.getInstance(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,20 +22,23 @@ class Settings() : AppCompatActivity(){
 
         var num = 0
 
+        var labels = DB.SelectLabel(this)
         var adapter = ArrayAdapter<String>(this, R.layout.my_listlabels_item, labels)
         labelslist.adapter = adapter
         addlabel.setOnClickListener {
-            if (num < 10) {
-                labels.add(edittext.text.toString())
+            if (num < 15) {
+                DB.AddLabel(this, edittext.text.toString())
                 num++
-                val adapter1 = ArrayAdapter<String>(applicationContext, R.layout.my_listlabels_item, labels)
-                labelslist.adapter = adapter1
-                println(labels)
+                edittext.setText("")
+                labels = DB.SelectLabel(this)
+                adapter = ArrayAdapter<String>(applicationContext, R.layout.my_listlabels_item, labels)
+                labelslist.adapter = adapter
+                adapter.notifyDataSetChanged()
+                println(DB)
             }
         }
 
         labelslist.setOnItemClickListener { parent, view, position, id ->
-
             val builder = AlertDialog.Builder(this)
 
             // Set the alert dialog title
@@ -48,7 +49,11 @@ class Settings() : AppCompatActivity(){
 
             // Set a positive button and its click listener on alert dialog
             builder.setPositiveButton("Да") { dialog, which ->
+                DB.DeleteLabel(this, labels[position])
                 labels.removeAt(position)
+                adapter = ArrayAdapter<String>(applicationContext, R.layout.my_listlabels_item, labels)
+                labelslist.adapter = adapter
+                adapter.notifyDataSetChanged()
             }
 
             // Set a positive button and its click listener on alert dialog
@@ -56,8 +61,11 @@ class Settings() : AppCompatActivity(){
 
             }
 
-            println(position)
+            builder.show()
+        }
 
+        save.setOnClickListener{
+            finish()
         }
     }
 }
