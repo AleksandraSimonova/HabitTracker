@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/edittext"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -127,7 +127,7 @@
 
             </LinearLayout>
 
-            /* Starting date */
+            // Starting date
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -262,6 +262,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/okbut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ok" />
