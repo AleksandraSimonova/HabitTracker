@@ -67,6 +67,7 @@ public class HabitTable() : AppCompatActivity(){
         val listItem = listview.adapter.getView(0, null, viewG)
         listItem.measure(0,0)
 
+
         textview.height = listItem.measuredHeight
 
         if (!listview.adapter.isEmpty)
